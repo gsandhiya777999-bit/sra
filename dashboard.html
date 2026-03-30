@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Dashboard</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<!-- Excel -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+<!-- PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+<!-- Chart -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body class="dashboard-body">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+<h2>🏆 RankSys</h2>
+
+<button onclick="location.href='login.html'">🔐 Login</button>
+<button onclick="goRanking()">📊 Ranking</button>
+
+<input type="file" id="file" onchange="uploadFile(event)">
+
+<button onclick="exportPDF()">📄 PDF</button>
+<button onclick="exportExcel()">📊 Excel</button>
+<button onclick="exportCSV()">🧾 Spreadsheet</button>
+
+<button onclick="goChart()">📊 Bar Chart</button>
+<button onclick="location.href='login.html'">🚪 Logout</button>
+
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+<h2>🏅 Student Ranking</h2>
+
+<!-- ADD STUDENT -->
+<h3>➕ Add Student Manually (Use only if no proper spreadsheet/Excel is available)</h3>
+<div class="card">
+<input id="m_name" placeholder="Student Name">
+<input id="m_reg" placeholder="Register No">
+<input id="m_score" placeholder="Total / CGPA">
+<button onclick="addManual()">Add Student</button>
+</div>
+
+<!-- SEARCH -->
+ <h3>🔎 Search Students</h3>
+<input id="search"
+placeholder="🔍 Search Name / Reg No"
+onkeyup="render()">
+
+<!-- FILTER -->
+<h3>🎯 Filter Students</h3>
+
+<select id="filterSelect" onchange="render()">
+<option value="all">All Students</option>
+<option value="10">Top 10</option>
+<option value="20">Top 20</option>
+<option value="30">Top 30</option>
+<option value="custom">Custom</option>
+</select>
+
+<input id="customFilter"
+placeholder="Enter number"
+style="display:none"
+onkeyup="render()">
+
+<!-- TABLE -->
+<div class="table-container">
+  <table id="rankTable">
+    <thead>
+      <tr id="head"></tr>
+    </thead>
+    <tbody id="body"></tbody>
+  </table>
+</div>
+
+<!-- CHART -->
+<h3>⭐ Star Performers</h3>
+<canvas id="topChart"></canvas>
+
+</div>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>

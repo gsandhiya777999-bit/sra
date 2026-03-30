@@ -1,0 +1,245 @@
+/* ===== GLOBAL ===== */
+body{
+    margin:0;
+    font-family:Segoe UI;
+    color:white;
+    animation:fadeIn 0.4s ease;
+}
+
+/* ===== LOGIN PAGE ===== */
+.login-body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: url("../images/background.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+.dashboard-body{
+    background: url("../images/background.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* overlay */
+.login-body::before{
+    content:"";
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:rgba(21, 20, 20, 0.5);
+    top:0;
+    left:0;
+    z-index:0;
+}
+
+/* bring content front */
+.login-container{
+    position:relative;
+    z-index:1;
+    text-align:center;
+    animation:fadeUp 1s ease;
+}
+
+/* title */
+.title{
+    font-size:36px;
+    margin-bottom:25px;
+    text-shadow:0 0 20px #737075;
+}
+
+/* form */
+.form-box{
+    background:#1c1338;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 0 30px #52197a;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    align-items:center;
+}
+
+/* inputs */
+.form-box input{
+    width:260px;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#26145b;
+    background:#26145b;
+    color: rgb;
+    font-size:16px;
+}
+
+/* button */
+.form-box button{
+    width:270px;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#4b1281;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.form-box button:hover{
+    transform:scale(1.05);
+    background:#9c6bff;
+}
+
+.form-box input:focus{
+    outline:none;
+    box-shadow:0 0 10px #4b07dd;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+    position:fixed;
+    width:220px;
+    height:100vh;
+    left:0;
+    top:0;
+    background:#12082a;
+    padding:20px;
+    box-shadow:4px 0 20px rgba(0,0,0,0.6);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    z-index:1000;
+}
+
+.sidebar button{
+    width:180px;
+    margin:8px 0;
+    padding:10px;
+}
+
+.sidebar input[type="file"]{
+    width:180px;
+    margin:10px 0;
+    background:31#75b6;
+    color:rgb;
+}
+
+.main{
+    margin-left:260px;
+    width:calc(100% - 260px);
+    padding:30px;
+    box-sizing:border-box;
+    border-left:2px solid rgba(255,255,255,0.1);
+}
+
+/* ===== CARD (MANUAL ENTRY) ===== */
+.card{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.card input{
+    width:200px;
+}
+
+/* ===== SEARCH ===== */
+#search{
+    width:300px;
+    margin-top:10px;
+    margin-bottom:15px;
+}
+
+/* ===== TABLE ===== */
+.table-container{
+    width:100%;
+    overflow-x:auto;
+}
+
+#rankTable{
+    width:100%;
+    min-width:1000px;
+    border-collapse:collapse;
+    margin-top:20px;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+th{
+    background:#1e1e2f;
+    font-weight:bold;
+}
+
+th, td{
+    border:1px solid #3b2a6d;
+    padding:10px;
+    text-align:center;
+    white-space:nowrap;
+}
+
+/* rank colors */
+.gold{background:#c89c0e;}
+.silver{background:#aea8a8;}
+.bronze{background:#513821;}
+
+/* ===== BUTTON & INPUT ===== */
+input,button{
+    padding:10px;
+    margin:6px;
+    border:none;
+    border-radius:8px;
+}
+
+input{
+    background:#26145b;
+    color:white;
+}
+
+button{
+    background:#7531b6;
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+    background:#662087;
+}
+
+/* ===== CHART ===== */
+#topChart{
+    width:100% !important;
+    max-width:100%;
+    margin-top:20px;
+}
+
+/* ===== LOADER ===== */
+#loader{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:#0a041a;
+    top:0;
+    left:0;
+    z-index:9999;
+}
+
+/* ===== FADE EFFECT ===== */
+body.fade-out{
+    opacity:0;
+    transition:opacity 0.4s ease;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
+}
